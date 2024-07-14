@@ -12,8 +12,7 @@ public class TestEnterprise {
             static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.timeout = 5000;
-        Configuration.holdBrowserOpen = true;
+
     }
     @Test
     void openEnterprise(){
