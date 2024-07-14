@@ -2,10 +2,12 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestEnterprize {
+public class TestEnterprise {
     @BeforeAll
             static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -14,12 +16,10 @@ public class TestEnterprize {
         Configuration.holdBrowserOpen = true;
     }
     @Test
-    void openEnterprize(){
+    void openEnterprise(){
         open("https://github.com");
-        //$(byText("Solutions")).hover().$(byText("Entrepfise")).click();
         $(byText("Solutions")).hover();
-        $$("div.HeaderMenu-dropdown div").get(1).$("a");
-        //$("div. ul li a").sibling(1).click();
-        //$("div. ul li a").click();
+        $(byTagAndText("a","Enterprise")).click();
+        $("The AI-powered developer platform.").shouldBe(visible);
     }
 }
